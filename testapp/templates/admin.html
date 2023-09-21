@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+   <div class="content-section">
+        <legend>Admin Page</legend>
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body">
+            <h2 class="account-heading">{{current_user.username}}</h2>
+            <p class="text-secondary">{{current_user.email}}</p>
+         </div>
+   </div>
+   <div class="content-section">
+      <legend class="boder-bottom mb-4">To create new annonucement click the below btn</legend>
+      <a href="{{url_for("users.update_Announcement")}}" class="btn btn-outline-info" >New Announcements</a>
+   </div>
+   <div class="container">
+      <form action="{{url_for("users.delete_announcement")}}" method="post">
+         <div>
+            <legend class="boder-bottom mb-4">Select ID of the announcement you want to delete:</legend>
+            <select class="form-control" id="selectid" name="selectid">
+               {% for option in range(1,option+1) %}
+                  <option>{{option}}</option>
+               {% endfor %}
+            </select>
+         </div><br>
+         <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+   </div>
+</div>
+{% endblock %}

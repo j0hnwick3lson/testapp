@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1> Announcements</h1><br>
+    {% for post in posts.items %}
+        <article class="media content-section">
+            <div class="article-metadata">
+              <h4>{{ post.announce }}</h4>
+              <small class="text-muted">{{ post.date_post.strftime('%Y-%m-%d') }}</small>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
